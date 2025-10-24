@@ -1,13 +1,21 @@
-# ================================================
+# ======================================================
 # Simulador de Presupuesto Mensual
 # Autor: Ivonn Quiñónez
 # Materia: Pensamiento Computacional para Ingenieria
 # Avance 7 - Proyecto Final
-# ================================================
+# ======================================================
+# Incluye funciones, estructuras de decision, ciclos, 
+# listas, listas anidadas y librerias externas (random)
+# ======================================================
 
-# --- Funciones ---
+import random # Para generar variaciones aleatorias en los gastos
+
+# -------------------
+#    Funciones 
+# -------------------
 
 def mostrar_bienvenida():
+    """Muestra el titulo del programa."""
     print("======================================")
     print("   Simulador de Presupuesto Mensual   ")
     print("======================================\n")
@@ -23,6 +31,7 @@ def obtener_datos_usuario():
     meses = int(input("¿Cuantos meses quieres simular?:"))
     return ingresos, deuda, meses
 
+
 def calcular_presupuesto(ingresos, deuda, meses):
     """
     Calcula los gastos; ahorros, pagos de deuda y dinero restante cada mes.
@@ -34,8 +43,12 @@ def calcular_presupuesto(ingresos, deuda, meses):
 # Ciclo para siular cada mes
     for mes in range(1, meses + 1):
          # Asignacion de porcentajes
-        porcentaje_gastos= ingresos * 0.50 
-        porcentaje_ahorro= ingresos * 0.30  
+        porcentaje_gastos = ingresos * 0.50 
+        porcentaje_ahorro = ingresos * 0.30 
+
+        # Uso del modulo random: variaciones realistas en los gastos
+        variacion = random.uniform(-0.1, 0.1) # entre -10% y +10%
+        porcentaje_gastos += (1 + variacion)
 
          # Estructura de decision: si hay deuda, se paga una parte
         if deuda_restante > 0:
@@ -47,7 +60,10 @@ def calcular_presupuesto(ingresos, deuda, meses):
         dinero_restante = ingresos - porcentaje_gastos - porcentaje_ahorro - pago_deuda
 
         # Guardar los datos del mes en una lista (fila)
-        datos_mes = [mes, porcentaje_gastos, porcentaje_ahorro, pago_deuda, deuda_restante, dinero_restante]
+        datos_mes = [mes, 
+                     int(porcentaje_gastos),                         int(porcentaje_ahorro),                         int(pago_deuda),
+                     int(deuda_restante), 
+                     int(dinero_restante)]
 
         # Agregar la fila a la matriz general
         presupuesto_mensual.append(datos_mes)
@@ -68,7 +84,7 @@ def mostrar_resumen(presupuesto_mensual):
     for fila in presupuesto_mensual:
         mes, gastos, ahorro, pago_deuda, deuda_restante, dinero_restante = fila
 
-        print(f"{mes:>3} | {gastos:>7.2f} | {ahorro:>7.2f} | {pago_deuda:>10.2f} | {deuda_restante:>15.2f} | {dinero_restante:>15.2f}")
+        print(f"{mes:>3} | {gastos:>7} | {ahorro:>7} | {pago_deuda:>10}{deuda_restante:>15} | {dinero_restante:>15}")
 
         # Decisiones condicionales: mensajes personalizados
         if deuda_restante == 0 and pago_deuda > 0:
@@ -90,9 +106,9 @@ def main():
     mostrar_bienvenida()
     ingresos, deuda, meses = obtener_datos_usuario()
 
-    print(f"\nIngresos mensuales: {ingresos}")
-    print(f"Deuda inicial: {deuda}")
-    print(f"Meses a siular: {meses}")
+    print(f"\nIngresos mensuales: {int(ingresos)}")
+    print(f"Deuda inicial: {int(deuda)}")
+    print(f"Meses a simular: {meses}")
 
     presupuesto_mensual = calcular_presupuesto(ingresos, deuda, meses)
 
