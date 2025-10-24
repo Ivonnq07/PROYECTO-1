@@ -28,6 +28,8 @@ Descargar el archivo y correr en terminal con:
 
 o abrir en Replit y dar boton de play.
 
+    main.py
+
 Responder a las preguntas que aparecen, el programa tiene instrucciones y no usa bibliotecas no standard.
 
 gracias por visitar
