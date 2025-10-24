@@ -20,3 +20,14 @@ Lo interesante es que el usuario no solo podrà ajustar los porcentajes de distr
 6. Calcular saldo final = ingresos - deuda.
 7. Mostrar resumen del presupuesto.
 8. Fin del programa.
+
+### Instrucciones
+
+Descargar el archivo y correr en terminal con:
+
+
+o abrir en Replit y dar boton de play.
+
+Responder a las preguntas que aparecen, el programa tiene instrucciones y no usa bibliotecas no standard.
+
+gracias por visitar
