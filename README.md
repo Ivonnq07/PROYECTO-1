@@ -9,26 +9,37 @@ Lo interesante es que el usuario no solo podrà ajustar los porcentajes de distr
 
 ### Algoritmo
 
-1. Iniciar el programa.
-2. Pedir al usuario su ingreso mensual.
-3. Preguntar si quiere usar los porcentajes estàndar.
-   - Si quiere estàndar usar 50% necesidades, 30% deseos, 20% ahorro.
-   - Sino pedir porcentaje personalizado.
-4. Calcular monto de necesidades, deseos y ahorro.
-5. Preguntar si tiene deuda.
-   - Si la tiene, pedir monto de la deuda.
-6. Calcular saldo final = ingresos - deuda.
-7. Mostrar resumen del presupuesto.
-8. Fin del programa.
+1. Iniciar el programa y mostrar un mensaje de bienvenida.
+2. Solicitar al usuario los siguientes datos:
+   • Ingreso mensual.
+   • Monto total de deuda.
+   • Número de meses a simular.
+3. Inicializar una lista vacía llamada presupuesto_mensual para almacenar los datos de cada mes.
+4. Asignar la variable deuda_restante con el valor inicial de la deuda.
+5. Para cada mes (uso de ciclo for):
+   5.1. Calcular los gastos (50% del ingreso).
+   5.2. Calcular el ahorro (30% del ingreso).
+   5.3. Si la deuda aún no está pagada, calcular el pago de deuda (20% o el total restante si es menor).
+   5.4. Restar el pago de deuda de la deuda restante.
+   5.5. Calcular el dinero restante del mes (ingreso – gastos – ahorro – pago de deuda).
+   5.6. Guardar los valores del mes (mes, gastos, ahorro, pago de deuda, deuda restante, dinero restante) en una lista.
+   5.7. Agregar esa lista como una fila dentro de la lista principal presupuesto_mensual (creando una matriz).
+6. Mostrar en pantalla una tabla con los resultados de cada mes, incluyendo:
+   • Mes, gastos, ahorro, pago de deuda, deuda restante y dinero restante.
+7. Evaluar los resultados de cada mes mediante condiciones (if):
+   • Si la deuda llega a cero, mostrar mensaje de felicitación.
+   • Si el dinero restante es negativo, mostrar advertencia.
+   • Si el dinero restante es positivo o cero, mostrar retroalimentación correspondiente.
+8. Finalizar el programa mostrando un mensaje de despedida.
 
 ### Instrucciones
 
 Descargar el archivo y correr en terminal con:
 
 
-o abrir en Replit y dar boton de play.
-
     main.py
+    
+o abrir en Replit y dar boton de Run project.
 
 Responder a las preguntas que aparecen, el programa tiene instrucciones y no usa bibliotecas no standard.
 
